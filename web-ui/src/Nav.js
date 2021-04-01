@@ -85,8 +85,10 @@ return (
  <Row>
    <Col>
      <Nav variant="pills">
-       <Link to="/">Feed</Link>
+       <Link to="/">Home</Link>
        <Link to="/users">Users</Link>
+       <Link to="/recipes">Recipe Search</Link>
+       <Link to="/profile">My Stuff</Link>
      </Nav>
    </Col>
    <Col>

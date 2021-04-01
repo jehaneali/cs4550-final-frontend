@@ -34,7 +34,7 @@ function Feed({posts, session}) {
 
   return (
     <div>
-      <h2>Feed</h2>
+      <h2>Home</h2>
       { new_link }
       <Row>{cards}</Row>
     </div>

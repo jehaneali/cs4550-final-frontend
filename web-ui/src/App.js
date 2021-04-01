@@ -6,6 +6,7 @@ import Nav from './Nav';
 import UsersList from './Users/List';
 import UsersNew from './Users/New';
 import PostsNew from './Posts/New';
+import RecipeSearch from './Recipes/Search'
 import Feed from './Feed';
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
         </Route>
         <Route path="/users/new" exact>
           <UsersNew />
+        </Route>
+        <Route path="/recipes" exact>
+          <RecipeSearch />
         </Route>
       </Switch>
     </Container>
