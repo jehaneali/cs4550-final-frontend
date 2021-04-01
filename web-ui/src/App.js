@@ -1,28 +1,31 @@
-import { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
+import { Switch, Route } from 'react-router-dom';
 
-import "./App.scss";
-import Users from "./Users";
-
-async function fetchUsers() {
-  let text = await fetch(
-    "http://localhost:4000/api/v1/users", {});
-  let resp = await text.json();
-  return resp.data;
-}
+import './App.scss';
+import Nav from './Nav';
+import UsersList from './Users/List';
+import UsersNew from './Users/New';
+import PostsNew from './Posts/New';
+import Feed from './Feed';
 
 function App() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    if (users.length === 0) {
-      fetchUsers().then((xs) => setUsers(xs));
-    }
-  }, [users.length]);
-
   return (
     <Container>
-      <Users users={users} />
+      <Nav />
+      <Switch>
+        <Route path="/" exact>
+          <Feed />
+        </Route>
+        <Route path="/posts/new" exact>
+          <PostsNew />
+        </Route>
+        <Route path="/users" exact>
+          <UsersList />
+        </Route>
+        <Route path="/users/new" exact>
+          <UsersNew />
+        </Route>
+      </Switch>
     </Container>
   );
 }
