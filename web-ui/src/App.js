@@ -7,7 +7,7 @@ import UsersList from './Users/List';
 import UsersNew from './Users/New';
 import PostsNew from './Posts/New';
 import RecipeSearch from './Recipes/Search'
-import Feed from './Feed';
+import Home from './Home';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <Nav />
       <Switch>
         <Route path="/" exact>
-          <Feed />
+          <Home />
         </Route>
         <Route path="/posts/new" exact>
           <PostsNew />
