@@ -40,6 +40,7 @@ export function fetch_posts() {
   });
 }
 
+// FIXME: show saves
 export function fetch_saves() {
   api_get("/recipes").then((data) => {
     let action = {
