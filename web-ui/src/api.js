@@ -40,6 +40,16 @@ export function fetch_posts() {
   });
 }
 
+export function fetch_saves() {
+  api_get("/recipes").then((data) => {
+    let action = {
+      type: 'recipes/set',
+      data: data,
+    }
+    store.dispatch(action);
+  });
+}
+
 export function api_login(name, password) {
   api_post("/session", {name, password}).then((data) => {
     console.log("login resp", data);
@@ -77,11 +87,6 @@ export async function create_post(post) {
     headers: {
       'x-auth': token,
     },
-    // fetch will magically do the right thing
-    // with our FormData:
-    //  - It's going to read the file
-    //  - It's going to pick correct headers
-    //  - multipart-form-data
   };
   let text = await fetch(
     "http://localhost:4000/api/v1/posts", opts);

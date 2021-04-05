@@ -5,6 +5,7 @@ defmodule Server.Repo.Migrations.CreateUsers do
     create table(:users) do
       add :name, :string, null: false
       add :password_hash, :string, null: false
+      add :cooking, :integer, null: false
 
       timestamps()
     end

@@ -2,6 +2,7 @@ defmodule ServerWeb.Router do
   use ServerWeb, :router
 
   pipeline :browser do
+    plug CORSPlug
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
@@ -10,7 +11,7 @@ defmodule ServerWeb.Router do
   end
 
   pipeline :api do
-    plug CORSPlug, origin: "*"
+    plug CORSPlug
     plug :accepts, ["json"]
   end
 
@@ -25,8 +26,8 @@ defmodule ServerWeb.Router do
     pipe_through :api
 
     resources "/users", UserController, except: [:new, :edit]
+    resources "/recipes", RecipeController, except: [:new, :edit]
     resources "/session", SessionController, only: [:create]
-
   end
 
   if Mix.env() in [:dev, :test] do
@@ -34,6 +35,7 @@ defmodule ServerWeb.Router do
 
     scope "/" do
       pipe_through :browser
+
       live_dashboard "/dashboard", metrics: ServerWeb.Telemetry
     end
   end
