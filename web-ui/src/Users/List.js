@@ -7,7 +7,10 @@ function UsersList({users}) {
     <tr key={user.id}>
       <td>{user.name}</td>
       <td>
-        [ Edit ]
+      <Button variant="primary" type="submit">
+        {/* FIXME / TODO : how to change this depending on whether following or not? */}
+            Follow
+          </Button>
       </td>
     </tr>
   ));
