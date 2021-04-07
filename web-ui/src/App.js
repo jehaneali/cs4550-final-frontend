@@ -7,6 +7,7 @@ import UsersList from './Users/List';
 import UsersNew from './Users/New';
 import PostsNew from './Posts/New';
 import RecipeSearch from './Recipes/Search'
+import RecipesList from './Recipes/List'
 import Home from './Home';
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
         </Route>
         <Route path="/recipes" exact>
           <RecipeSearch />
+        </Route>
+        <Route path="/recipes/results" exact>
+          <RecipesList />
         </Route>
       </Switch>
     </Container>
