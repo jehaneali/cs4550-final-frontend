@@ -35,3 +35,4 @@ npm-debug.log
 
 /config/prod.secret.exs
 **/*.server.exs
+server/config/dev.secret.exs

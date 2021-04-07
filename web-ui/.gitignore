@@ -25,3 +25,4 @@ yarn-error.log*
 # secrets
 server/config/prod.secret.exs
 **/*.server.exs
+server/config/dev.secret.exs
