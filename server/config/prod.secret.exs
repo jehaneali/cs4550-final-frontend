@@ -30,9 +30,6 @@ config :server, ServerWeb.Endpoint,
   ],
   secret_key_base: secret_key_base,
 
-api_key = System.get_env("API_KEY")
-config :server, api_key: ""
-
 # ## Using releases (Elixir v1.9+)
 #
 # If you are doing OTP releases, you need to instruct Phoenix

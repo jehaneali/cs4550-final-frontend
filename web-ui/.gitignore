@@ -23,4 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # secrets
-server/priv/secrets.ex
+server/config/prod.secret.exs
+**/*.server.exs
