@@ -17,6 +17,6 @@ defmodule ServerWeb.RecipeView do
         "https://www.themealdb.com/api/json/v2/#{api_key}/lookup.php?i=#{recipe.api_id}"
       )
     data = Jason.decode!(resp.body)
-    %{id: recipe.id, api_id: recipe.api_id, user_id: recipe.user_id, rep: data["meals"]}
+    %{id: recipe.id, api_id: recipe.api_id, user_id: recipe.user_id, rep: hd(data["meals"])}
   end
 end

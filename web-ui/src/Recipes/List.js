@@ -9,7 +9,8 @@ function RecipesList({recipes}) {
         <td>{recipe.rep["strMeal"]}</td>
             <td>
                 <Button variant="primary" type="submit">
-                    {/* FIXME : implement saving */}
+            {/* FIXME : implement saving  */}
+            {/* onclick=function(recipe.api_id) */}
             Save
           </Button>
             </td>
