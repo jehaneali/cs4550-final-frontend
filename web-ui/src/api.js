@@ -40,7 +40,6 @@ export function fetch_posts() {
   });
 }
 
-// FIXME: show saves
 export function fetch_saves() {
   api_get("/recipes").then((data) => {
     let action = {
@@ -52,7 +51,7 @@ export function fetch_saves() {
 }
 
 export function api_login(name, password) {
-  api_post("/session", {name, password}).then((data) => {
+  api_post("/session", { name, password }).then((data) => {
     console.log("login resp", data);
     if (data.session) {
       let action = {
@@ -62,7 +61,7 @@ export function api_login(name, password) {
       store.dispatch(action);
     }
     else if (data.error) {
-     let action = {
+      let action = {
         type: 'error/set',
         data: data.error,
       }
@@ -72,7 +71,7 @@ export function api_login(name, password) {
 }
 
 export function create_user(user) {
-  return api_post("/users", {user});
+  return api_post("/users", { user });
 }
 
 export async function create_post(post) {
@@ -98,4 +97,5 @@ export async function create_post(post) {
 export function load_defaults() {
   fetch_posts();
   fetch_users();
+  fetch_saves();
 }

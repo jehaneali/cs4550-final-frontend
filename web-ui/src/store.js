@@ -34,6 +34,15 @@ function posts(state = [], action) {
   }
 }
 
+function recipes(state = [], action) {
+  switch (action.type) {
+    case 'recipes/set':
+      return action.data;
+    default:
+      return state;
+  }
+}
+
 function save_session(sess) {
   let session = Object.assign({}, sess, {time: Date.now()});
   localStorage.setItem("session", JSON.stringify(session));
@@ -88,7 +97,7 @@ function root_reducer(state, action) {
     }
   */
   let redu = combineReducers(
-    {users, user_form, posts, session, error}
+    { users, user_form, recipes, posts, session, error}
   );
 
   let state1 = redu(state, action);

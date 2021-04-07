@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 
 function RecipesList({recipes}) {
     let rows = recipes.map((recipe) => (
-        <tr key={recipe.api_id}>
-            {/* FIXME : there is no name field yet   */}
-            <td>{recipe.name}</td>
+      <tr key={recipe.id}>
+        <td>{recipe.api_id}</td>
+        <td>{recipe.rep["strMeal"]}</td>
             <td>
                 <Button variant="primary" type="submit">
                     {/* FIXME : implement saving */}
@@ -41,8 +41,9 @@ return (
           <table className="table table-striped">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Description</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Save</th>
               </tr>
             </thead>
             <tbody>

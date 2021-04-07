@@ -11,8 +11,12 @@ defmodule ServerWeb.RecipeView do
   end
 
   def render("recipe.json", %{recipe: recipe}) do
-    %{id: recipe.id,
-      api_id: recipe.api_id,
-      user_id: recipe.user_id}
+    api_key = System.get_env("API_KEY")
+    # resp =
+    #   HTTPoison.get!(
+    #     "https://www.themealdb.com/api/json/v2/#{api_key}/lookup.php?i=#{recipe.api_id}"
+    #   )
+    # data = Jason.decode!(resp.body)
+    %{id: recipe.id, api_id: recipe.api_id, user_id: recipe.user_id, rep: api_key}#data["meals"]}
   end
 end

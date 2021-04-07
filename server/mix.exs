@@ -49,6 +49,7 @@ defmodule Server.MixProject do
       {:cors_plug, "~> 2.0.3"},
       {:argon2_elixir, "~> 2.0"},
       {:password_validator, "~> 0.4"},
+      {:httpoison, "~> 1.5"},
     ]
   end
 
