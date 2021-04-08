@@ -89,6 +89,7 @@ return (
        <Link to="/users">Users</Link>
        <Link to="/recipes">Recipe Search</Link>
        <Link to="/profile">My Stuff</Link>
+       <Link to="/video">Live Stream</Link>
      </Nav>
    </Col>
    <Col>

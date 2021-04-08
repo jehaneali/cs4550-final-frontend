@@ -9,6 +9,7 @@ import PostsNew from './Posts/New';
 import RecipeSearch from './Recipes/Search'
 import RecipesList from './Recipes/List'
 import Home from './Home';
+import Video from './Video';
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
         </Route>
         <Route path="/recipes/results" exact>
           <RecipesList />
+        </Route>
+        <Route path="/video" exact>
+          <Video />
         </Route>
       </Switch>
     </Container>
