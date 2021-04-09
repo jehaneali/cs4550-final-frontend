@@ -7,9 +7,11 @@ import UsersList from './Users/List';
 import UsersNew from './Users/New';
 import PostsNew from './Posts/New';
 import RecipeSearch from './Recipes/Search'
+import RecipeShow from './Recipes/Show'
 import RecipesList from './Recipes/List'
 import Home from './Home';
 import Video from './Video';
+import ShowProfile from './Profile/Profile';
 
 function App() {
   return (
@@ -34,8 +36,14 @@ function App() {
         <Route path="/recipes/results" exact>
           <RecipesList />
         </Route>
+        <Route path="/recipes/show" exact>
+          <RecipeShow />
+        </Route>
         <Route path="/video" exact>
           <Video />
+        </Route>
+        <Route path="/mystuff" exact>
+          <ShowProfile />
         </Route>
       </Switch>
     </Container>

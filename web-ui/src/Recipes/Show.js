@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 function RecipeShow({ recipe }) {
     return (
         <div>
-            <h2>{recipe.rep["strMeal"]}</h2>
+            <h2>{recipe.rep["strMeal"]} <div class="text-center"> <Button variant="primary"> Save this recipe!</Button></div> </h2>
             <hr></hr>
             <h4>Ingredients</h4>
             <p>{recipe.rep["strMeasure1"] } {recipe.rep["strIngredient1"]}</p>
@@ -28,12 +28,15 @@ function RecipeShow({ recipe }) {
             <p>{recipe.rep["strMeasure18"] } {recipe.rep["strIngredient18"]}</p>
             <p>{recipe.rep["strMeasure19"] } {recipe.rep["strIngredient19"]}</p>
             <p>{recipe.rep["strMeasure20"] } {recipe.rep["strIngredient20"]}</p>
-            <br></br>
+            <br></br> 
             <h4>Method</h4>
             {recipe.rep["strInstructions"]}
-
-            
         </div>
     )
-
 }
+
+function state2props({ recipe }) {
+    return { recipe };
+}
+
+export default connect(state2props)(RecipeShow);

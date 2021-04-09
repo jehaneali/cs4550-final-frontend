@@ -82,20 +82,19 @@ error_row = (
 
 return (
 <div>
- <Row>
-   <Col>
-     <Nav variant="pills">
+ {/* <Row>
+   <Col> */}
+   <Nav class="navbar navbar-light" style={{backgroundColor: '#e3f2fd'}}
+     variant="pills">
        <Link to="/">Home</Link>
        <Link to="/users">Users</Link>
        <Link to="/recipes">Recipe Search</Link>
-       <Link to="/profile">My Stuff</Link>
        <Link to="/video">Live Stream</Link>
+       <Link to="/profile">My Stuff</Link>
      </Nav>
-   </Col>
-   <Col>
      <LoginOrInfo />
-   </Col>
- </Row>
+   {/* </Col>
+ </Row> */}
  { error_row }
 </div>
 );

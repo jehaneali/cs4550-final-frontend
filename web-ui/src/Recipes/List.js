@@ -1,6 +1,7 @@
 import { Row, Col, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import RecipeShow from './Show'
 
 function RecipesList({ recipes }) {
 
@@ -14,7 +15,8 @@ function RecipesList({ recipes }) {
         <div class="card-text">
           <div>This is a description of the recipe. I am typing filler text here. </div> </div>
         <br></br>
-        <div class="text-center"><Button variant="primary">Save this recipe!</Button></div>
+        <div class="text-center"><Button variant="info" onClick={RecipeShow}> View Recipe</Button> <Button variant="success">Save Recipe</Button> </div>
+        {/* <div class="text-center"><Button variant="primary">Save this recipe!</Button></div> */}
         <br></br>
       </div>
     </div>
