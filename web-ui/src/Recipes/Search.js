@@ -1,38 +1,33 @@
 import { Row, Col, Form, Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import pick from 'lodash/pick';
 
-import { create_post, fetch_posts } from '../api';
+import { create_search, fetch_searches } from '../api';
 
-export default function RecipeSearch() {
+function RecipeSearch() {
   let history = useHistory();
-  let [post, setPost] = useState({});
+  const [search, setSearch] = useState({
+    type: "meal_name", params: "",
+  });
 
   function submit(ev) {
     ev.preventDefault();
     console.log(ev);
-    console.log(post);
-    create_post(post).then((resp) => {
-      if (resp["errors"]) {
-        console.log("errors", resp.errors);
-      }
-      else {
-        history.push("/");
-        fetch_posts();
-      }
+    console.log(search);
+
+    let data = pick(search, ['type', 'params']);
+    create_search(data).then(() => {
+      fetch_searches();
+      history.push("/recipes/results");
     });
   }
 
-  function updatePhoto(ev) {
-    let p1 = Object.assign({}, post);
-    p1["photo"] = ev.target.files[0];
-    setPost(p1);
-  }
-
-  function updateBody(ev) {
-    let p1 = Object.assign({}, post);
-    p1["body"] = ev.target.value;
-    setPost(p1);
+  function update(field, ev) {
+    let u1 = Object.assign({}, search);
+    u1.params = ev.target.value;
+    setSearch(u1);
   }
 
   return (
@@ -43,8 +38,9 @@ export default function RecipeSearch() {
           <Form.Group>
             <Form.Label>Enter the name of the recipe you're looking for!</Form.Label>
             <Form.Control type="text"
-                          onChange={updateBody}
-                          value={post.body} />
+              onChange={
+                (ev) => update("name", ev)}
+                          value={search.params} />
           </Form.Group>
           <Button variant="primary" type="submit">
             Search
@@ -54,3 +50,9 @@ export default function RecipeSearch() {
     </Row>
   );
 }
+
+function state2props(_state) {
+  return {};
+}
+
+export default connect(state2props)(RecipeSearch);
