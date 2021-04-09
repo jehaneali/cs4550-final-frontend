@@ -1,5 +1,4 @@
 import { Row, Col, Form, Button } from 'react-bootstrap';
-// import { $theme-colors } from 'custom-style.scss'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -8,7 +7,7 @@ function RecipesList({ recipes }) {
   let cards = recipes.map((recipe) => (
     <div class="card-group">
       <div class="card" style={{ width: '18rem' }}>
-        <img class="card-img-top" src="..."></img>
+        <img class="card-img-top" src={recipe.rep["strMealThumb"]}></img>
         {/* <h3 class="card-title">{recipe.id}</h3> */}
         <h4 class="text-center">{recipe.rep["strMeal"]}</h4>
         {/* <h6 class="card-title">{recipe.api_id}</h6> */}
@@ -37,7 +36,7 @@ function RecipesList({ recipes }) {
             
             <tbody> */}
       <div class="card-deck">{cards}</div>
-
+     
       {/* </tbody>
           </table> */}
       {/* </Col>
