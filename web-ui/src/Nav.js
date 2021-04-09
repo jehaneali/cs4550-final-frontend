@@ -25,7 +25,7 @@ return (
                type="password"
                onChange={(ev) => setPass(ev.target.value)}
                value={pass} />
- <Button variant="primary" type="submit">
+ <Button variant="secondary" type="submit">
    Login
  </Button>
 </Form>
@@ -84,7 +84,7 @@ return (
 <div>
  {/* <Row>
    <Col> */}
-   <Nav class="navbar navbar-light" style={{backgroundColor: '#e3f2fd'}}
+   <Nav class="navbar navbar-light" style={{backgroundColor: '#fc5d35'}}
      variant="pills">
        <Link to="/">Home</Link>
        <Link to="/users">Users</Link>

@@ -40,7 +40,7 @@ function Home({ posts, session }) {
         <Row>{cards}</Row>
       </Row>
       <Row>
-        <h4>Latest Recipes</h4>
+        <h4 style={{color: "#fc5d35"}}>Latest Recipes</h4>
       </Row>
 
     </div>

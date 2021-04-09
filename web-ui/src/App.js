@@ -42,7 +42,7 @@ function App() {
         <Route path="/video" exact>
           <Video />
         </Route>
-        <Route path="/mystuff" exact>
+        <Route path="/profile" exact>
           <ShowProfile />
         </Route>
       </Switch>
