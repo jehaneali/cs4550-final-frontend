@@ -13,6 +13,7 @@
 alias Server.Repo
 alias Server.Users.User
 alias Server.Recipes.Recipe
+alias Server.Searches.Search
 
 defmodule Inject do
   def user(name, pass) do
@@ -23,6 +24,10 @@ defmodule Inject do
   def rep(id, user_id) do
     Repo.insert!(%Recipe{api_id: id, user_id: user_id})
   end
+
+  def search(type, params) do
+    Repo.insert!(%Search{type: type, params: params})
+  end
 end
 
 sam = Inject.user("Sam", "test1")
@@ -30,3 +35,4 @@ samantha = Inject.user("Samantha", "test2")
 soup = Inject.rep(53047,sam.id)
 stew = Inject.rep(53045,sam.id)
 sardines = Inject.rep(53041,samantha.id)
+search_soup = Inject.search("meal_name", "soup")

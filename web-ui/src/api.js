@@ -30,6 +30,16 @@ export function fetch_users() {
   });
 }
 
+export function fetch_searches() {
+  api_get("/searches").then((data) => {
+    let action = {
+      type: 'searches/set',
+      data: data,
+    }
+    store.dispatch(action);
+  });
+}
+
 export function fetch_posts() {
   api_get("/posts").then((data) => {
     let action = {
@@ -72,6 +82,10 @@ export function api_login(name, password) {
 
 export function create_user(user) {
   return api_post("/users", { user });
+}
+
+export function create_search(search) {
+  return api_post("/searches", { search });
 }
 
 export async function create_post(post) {

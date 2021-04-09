@@ -10,19 +10,23 @@ defmodule ServerWeb.SearchView do
     %{data: render_one(search, SearchView, "search.json")}
   end
 
+  # def lookup(search) do
+  #   cond do
+  #     String.match?(search, "meal_name") -> "/search.php?s="
+  #     true -> "/filter.php?i="
+  #   end
+  # end
+
   def render("search.json", %{search: search}) do
-    lookup = ""
-    if search.type == "meal_name" do
-      lookup = "/search.php?s="
-    else
-      lookup = "/filter.php?i="
-    end
+    # l = lookup({search.type})
     api_key = Application.fetch_env!(:server, :api_key)
     resp =
       HTTPoison.get!(
-        "https://www.themealdb.com/api/json/v2/#{api_key}#{lookup}#{search.params}"
+        "https://www.themealdb.com/api/json/v2/#{api_key}/search.php?s=#{search.params}"
       )
     data = Jason.decode!(resp.body)
-    %{id: search.id, results: data}
+    %{id: search.id,
+      results: data}
   end
+
 end
