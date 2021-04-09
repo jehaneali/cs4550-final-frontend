@@ -27,6 +27,7 @@ defmodule ServerWeb.Router do
 
     resources "/users", UserController, except: [:new, :edit]
     resources "/recipes", RecipeController, except: [:new, :edit]
+    resources "/searches", SearchController, except: [:new, :edit]
     resources "/session", SessionController, only: [:create]
   end
 
