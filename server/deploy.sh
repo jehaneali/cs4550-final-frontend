@@ -17,7 +17,7 @@ export DATABASE_URL=ecto://kitchen:postgres@localhost/server_dev
 mix ecto.create
 mix ecto.migrate
 # (cd assets && npm install)
-(cd assets && webpack --mode production)
+# (cd assets && webpack --mode production)
 mix phx.digest
 
 
