@@ -35,7 +35,7 @@ function Home({ posts, session }) {
   return (
     <div>
       <Row>
-        <h1>Home</h1>
+        <h1>Kitchen Island</h1>
         <Row>{cards}</Row>
       </Row>
       <Row>

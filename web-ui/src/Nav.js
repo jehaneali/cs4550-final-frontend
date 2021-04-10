@@ -97,7 +97,7 @@ return (
        <Link to="/">Home</Link>
        <Link to="/users">Users</Link>
        <Link to="/recipes">Recipe Search</Link>
-       <Link to="/video">Live Stream</Link>
+       <Link to="/video">Video Chat</Link>
        <Link to="/profile">My Stuff</Link>
      </Nav>
      <LoginOrInfo />

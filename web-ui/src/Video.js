@@ -42,10 +42,10 @@ function Video() {
     return (
         <Row>
             <Col>
-                <h1>Video Chat </h1>
+                <h1>Start a Kitchen Island Video Chat</h1>
                 <Form action={URL}>
                     <Form.Group>    
-                        <Form.Label>Enter a video call ID, and you'll be taken to your call.</Form.Label>
+                        <Form.Label>Enter a room name, and you'll be taken to your call.</Form.Label>
                         <Form.Control type="text"
                             onChange={updateURL}
                             value={roomID} />
