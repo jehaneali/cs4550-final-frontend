@@ -2,7 +2,7 @@ use Mix.Config
 
 # Configure your database
 config :server, Server.Repo,
-  username: "postgres",
+  username: "kitchen",
   password: "postgres",
   database: "server_dev",
   hostname: "localhost",
@@ -22,12 +22,12 @@ config :server, ServerWeb.Endpoint,
   check_origin: false,
   watchers: []
 
-# config :cors_plug,
-#   origin: ["http://localhost:3000", "http://localhost:4000"],
-#   max_age: 86400,
-#   methods: ["GET", "POST", "PATCH", "DELETE"],
-#   headers: ["x-auth"],
-#   send_preflight_response?: false
+config :cors_plug,
+  origin: ["http://localhost:3000", "http://localhost:4000", "http://kitchenisland.jehaneali.site"],
+  max_age: 86400,
+  methods: ["GET", "POST", "PATCH", "DELETE"],
+  headers: ["x-auth"],
+  send_preflight_response?: false
 
 # ## SSL Support
 #
