@@ -1,5 +1,3 @@
-# Note to team: DON'T PUBLISH API KEY!!!
-
 # Note:
 This project was in some places based on Nat Tuck's lecture code for photo-blog-spa for CS4550. 
 Credit for theme: https://themewagon.com/themes/free-bootstrap-4-html5-online-store-website-template-tropiko/ 
