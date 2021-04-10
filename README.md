@@ -1,6 +1,7 @@
 # cs4550-final-project - Kitchen Island
 
 Deployed to:
+- http://kitchenisland.clipturtle.com/
 - http://kitchenisland.jehaneali.site/
 - https://webchat.kia.town/
 
