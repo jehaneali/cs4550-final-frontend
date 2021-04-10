@@ -3,24 +3,26 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import RecipeShow from './Show'
 
-function RecipesList({ recipes }) {
+function RecipesList({ current_search }) {
 
-  let cards = recipes.map((recipe) => (
-    <div class="card-group">
-      <div class="card" style={{ width: '18rem' }}>
-        <img class="card-img-top" src={recipe.rep["strMealThumb"]}></img>
-        {/* <h3 class="card-title">{recipe.id}</h3> */}
-        <h4 class="text-center">{recipe.rep["strMeal"]}</h4>
-        {/* <h6 class="card-title">{recipe.api_id}</h6> */}
-        <div class="card-text">
-          <div>This is a description of the recipe. I am typing filler text here. </div> </div>
-        <br></br>
-        <div class="text-center"><Button variant="secondary" onClick={RecipeShow}> View Recipe</Button> <Button variant="primary">Save Recipe</Button> </div>
-        {/* <div class="text-center"><Button variant="primary">Save this recipe!</Button></div> */}
-        <br></br>
-      </div>
-    </div>
-  ));
+  // let cards = current_search.results.map((recipe) => (
+  //   <h5>{recipe["data"].id}</h5>
+    // <div class="card-group">
+    //   <div class="card" style={{ width: '18rem' }}>
+    //     <img class="card-img-top" src={recipe.rep["strMealThumb"]}></img>
+    //     {/* <h3 class="card-title">{recipe.id}</h3> */}
+    //     <h4 class="text-center">{recipe.rep["strMeal"]}</h4>
+    //     {/* <h6 class="card-title">{recipe.api_id}</h6> */}
+    //     <div class="card-text" style={{ textAlign: 'center' }}>
+    //       <div>Category: {recipe.rep["strCategory"]} </div> 
+    //       <div>Cuisine: {recipe.rep["strArea"]} </div> </div>
+    //     <br></br>
+    //     <div class="text-center"><Button variant="secondary" onClick={RecipeShow}> View Recipe</Button> <Button variant="primary">Save Recipe</Button> </div>
+    //     {/* <div class="text-center"><Button variant="primary">Save this recipe!</Button></div> */}
+    //     <br></br>
+    //   </div>
+    // </div>
+  // ));
 
 
 
@@ -37,7 +39,7 @@ function RecipesList({ recipes }) {
       {/* <table className="table table-striped">
             
             <tbody> */}
-      <div class="card-deck">{cards}</div>
+      <div class="card-deck">{current_search.results}</div>
      
       {/* </tbody>
           </table> */}
@@ -48,8 +50,8 @@ function RecipesList({ recipes }) {
 
 }
 
-function state2props({ recipes, recipe_form }) {
-  return { recipes, recipe_form };
+function state2props({ current_search }) {
+  return { current_search };
 }
 
 export default connect(state2props)(RecipesList);

@@ -6,22 +6,15 @@ body {
     background-color: #ffffff;
   }
 
+
 .nav-link{
     font-family: 'Poppins', sans-serif;
     color: #f7f7f7 !important;
   }
+  .nav-link:hover{
+    color: #000000 !important;
+  }
 
-// .btn-primary{
-//     font-family: 'Roboto', sans-serif;
-//     background-color: #E89B55 !important;
-    
-//   }
-
-//   .btn-primary:hover {
-//     border: 1px solid #fc5d35;
-//     color: #fc5d35;
-//     background-color: transparent;
-//   }
 
 .btn-primary,
 .btn-secondary {

@@ -39,7 +39,7 @@ dispatch({type: 'session/clear'});
 return (
 <p>
  Logged in as {session.name} &nbsp;
- <Button onClick={logout}>Logout</Button>
+ <Button variant="secondary" onClick={logout}>Logout</Button>
 </p>
 );
 });

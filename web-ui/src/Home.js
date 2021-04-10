@@ -25,18 +25,17 @@ function Home({ posts, session }) {
     <Post post={post} key={post.id} />
   ));
 
-  let new_link = null;
-  if (session) {
-    new_link = (
-      <p><Link to="/posts/new">New Post</Link></p>
-    )
-  }
+  // let new_link = null;
+  // if (session) {
+  //   new_link = (
+  //     <p><Link to="/posts/new">New Post</Link></p>
+  //   )
+  // }
 
   return (
     <div>
       <Row>
         <h2>Home</h2>
-        {new_link}
         <Row>{cards}</Row>
       </Row>
       <Row>

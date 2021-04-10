@@ -12,14 +12,14 @@ async function api_post(path, data) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
-    },
+    },  
     body: JSON.stringify(data),
-  };
+  };  
   let text = await fetch(
     "http://localhost:4000/api/v1" + path, opts);
   return await text.json();
-}
-
+}  
+  
 export function fetch_users() {
   api_get("/users").then((data) => {
     let action = {
@@ -54,6 +54,16 @@ export function fetch_saves() {
   api_get("/recipes").then((data) => {
     let action = {
       type: 'recipes/set',
+      data: data,
+    }
+    store.dispatch(action);
+  });
+}
+
+export function fetch_current_search() {
+  api_get("/searches/1").then((data) => {
+    let action = {
+      type: 'search/set',
       data: data,
     }
     store.dispatch(action);
@@ -112,4 +122,5 @@ export function load_defaults() {
   fetch_posts();
   fetch_users();
   fetch_saves();
+  fetch_searches();
 }

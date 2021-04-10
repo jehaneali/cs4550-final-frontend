@@ -1,41 +1,71 @@
 import { Row, Col, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import RecipeShow from '../Recipes/Show'
 
-import { fetch_saves } from '../api';
-
-// FIXME: show saves
-// function Save({ recipe }) {
-//   return (
-//     <Col md="3">
-//       <Card>
-//         <Card.Img variant="top" src={photo_path(post)} />
-//         <Card.Text>
-//           Posted by {post.user.name} <br />
-//           {post.body}
-//         </Card.Text>
-//       </Card>
-//     </Col>
-//   );
-// }
-
-function ShowProfile({ user, session }) {
-
-
-
-  // let cards = null
-  // if (session) {
-  //   cards = reps.map((recipe) => (
-  //     <Save recipe={recipe} key={recipe.id} />
-  //   ));
-  // }
-
-  return (
-    <div>
-      {/* <h2>Hello, { user.name }!</h2> */}
-      <Row>hi</Row>
-    </div>
-  );
+function Rep({ recipe, session }) {
+  if (session.user_id == recipe.user_id) {
+    return (
+      <div class="card-group">
+        <div class="card" style={{ width: '18rem' }}>
+          <img class="card-img-top" src={recipe.rep["strMealThumb"]}></img>
+          {/* <h3 class="card-title">{recipe.id}</h3> */}
+          <h4 class="text-center">{recipe.rep["strMeal"]}</h4>
+          {/* <h6 class="card-title">{recipe.api_id}</h6> */}
+          <div class="card-text" style={{ textAlign: 'center' }}>
+            <div>Category: {recipe.rep["strCategory"]} </div>
+            <div>Cuisine: {recipe.rep["strArea"]} </div> </div>
+          <br></br>
+          <div class="text-center"><Button variant="secondary" onClick={RecipeShow}> View Recipe</Button> <Button variant="primary">Save Recipe</Button> </div>
+          {/* <div class="text-center"><Button variant="primary">Save this recipe!</Button></div> */}
+          <br></br>
+        </div>
+      </div>
+    );
+  }
+  else {
+    return null;
+  }
 }
 
-export default connect(
-  ({ user, session }) => ({ user, session }))(ShowProfile);
+function ShowProfile({ recipes, session }) {
+
+  let cards = recipes.map((recipe) => (
+    <Rep recipe={recipe} session={session} />
+  ));
+
+
+  if (session == null) {
+    return (
+      <h3>Please Login!</h3>
+    );
+  }
+  else {
+    return (
+      <div>
+        {/* <Row>
+        <Col> */}
+        <Row> <h2> Welcome back, {session.name}! </h2> </Row>
+        <hr></hr>
+        <Row><h4 style={{ color: "#fc5d35" }}>My Saved Recipes</h4> </Row>
+
+        {/* <table className="table table-striped">
+            
+            <tbody> */}
+        <div class="card-deck">{cards}</div>
+
+        {/* </tbody>
+          </table> */}
+        {/* </Col>
+      </Row> */}
+      </div>
+    );
+  }
+
+}
+
+function state2props({ recipes, recipe_form, session }) {
+  return { recipes, recipe_form, session };
+}
+
+export default connect(state2props)(ShowProfile);

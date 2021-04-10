@@ -4,12 +4,12 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import pick from 'lodash/pick';
 
-import { create_search, fetch_searches } from '../api';
+import { create_search, fetch_current_search } from '../api';
 
 function RecipeSearch() {
   let history = useHistory();
   const [search, setSearch] = useState({
-    type: "meal_name", params: "",
+    type: "meal_name", params: "", id: "1"
   });
 
   function submit(ev) {
@@ -19,7 +19,7 @@ function RecipeSearch() {
 
     let data = pick(search, ['type', 'params']);
     create_search(data).then(() => {
-      fetch_searches();
+      fetch_current_search("1");
       history.push("/recipes/results");
     });
   }

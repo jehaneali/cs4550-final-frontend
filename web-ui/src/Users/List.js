@@ -2,17 +2,43 @@ import { Row, Col, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-function UsersList({users}) {
-  let rows = users.map((user) => (
-    <tr key={user.id}>
-      <td>{user.name}</td>
-      <td>
-      <Button variant="primary" type="submit">
-        {/* FIXME : how to change this depending on whether following or not? */}
+function User({ user, session }) {
+  if (session != null) {
+    if (user.id != session.user_id) {
+      return (
+        <tr key={user.id}>
+          <td>{user.name}</td>
+          <td>
+            <Button variant="primary" type="submit">
+              {/* FIXME : how to change this depending on whether following or not? */}
             Follow
           </Button>
-      </td>
-    </tr>
+          </td>
+        </tr>
+      );
+    }
+    else {
+      return (
+        <tr key={user.id}>
+          <td>{user.name}</td>
+          <td></td>
+        </tr>
+      );
+    }
+  }
+  else {
+    return (
+      <tr key={user.id}>
+        <td>{user.name}</td>
+        <td></td>
+      </tr>
+    );
+  }
+}
+
+function UsersList({ users, session }) {
+  let rows = users.map((user) => (
+    <User user={user} session={session}></User>
   ));
 
   return (
@@ -33,7 +59,7 @@ function UsersList({users}) {
               </tr>
             </thead>
             <tbody>
-              { rows }
+              {rows}
             </tbody>
           </table>
         </Col>
@@ -43,8 +69,8 @@ function UsersList({users}) {
 
 }
 
-function state2props({users, user_form}) {
-  return { users, user_form };
+function state2props({ users, user_form, session }) {
+  return { users, user_form, session };
 }
 
 export default connect(state2props)(UsersList);
