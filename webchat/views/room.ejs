@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        const ROOM_ID = "<%= roomId %>"
+    </script>
+    <script defer src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="script.js" defer></script>
+
+    <title>Cook w/ Friends!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <style>
+        a {
+            color: #fc5d35;
+        }
+
+        a:hover {
+            color: #de522f;
+        }
+
+        body {
+            background-image: linear-gradient(#FFFFFF 15%, #fc5d35);
+            height: 100%;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        button {
+            background-color: #fc5d35;
+        }
+
+        button:hover {
+            background-color: #FFFFFF;
+        }
+
+        header {
+            background: #FFFFFF;
+            font-family: 'Poppins', sans-serif;
+            color: #fc5d35;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #video-grid {
+            align-items: center;
+            align-content: center;
+            align-self: center;
+            display: grid;
+            justify-content: space-around;
+            grid-template-columns: repeat(auto-fill, 580px);
+            grid-auto-rows: 326px;
+            grid-gap: 20px;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        </br>
+        <div>
+            <div class="row align-items-center">
+                <div class="col text-right">
+                    <a href="http://kitchenisland.clipturtle.com/" class="link-dark">Back to Cooking Mama</a></br>
+                    <a href="https://webchat.kia.town" class="link-dark">Random New Room</a>
+                </div>
+                <div class="col text-center">
+                    <h1>Kitchen Stream!</h1>
+                </div>
+                <div class="col text-left">Share this link with your friends!</br>
+                    <div class="input-group w-50">
+                        <input id="share_link" class="form-control" type="text" readonly>
+                        <button class="btn btn-outline-danger" type="button" onclick="copy_link()">Copy URL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </br>
+    </header>
+    <div id="video-grid"></div>
+</body>
+<script type = "text/javascript">
+    // from https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
+    function copy_link() {
+      /* Get the text field */
+      var copyText = document.getElementById("share_link");
+
+      /* Select the text field */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+      /* Copy the text inside the text field */
+      document.execCommand("copy");
+
+      /* Alert the copied text */
+      alert("Copied the text: " + copyText.value);
+    }
+
+    document.getElementById("share_link").value = document.documentURI;
+
+</script>
+</html>
