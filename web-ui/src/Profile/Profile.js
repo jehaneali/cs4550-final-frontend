@@ -51,7 +51,7 @@ function ShowProfile({ recipes, session }) {
       <div>
         {/* <Row>
         <Col> */}
-        <Row> <h2> Welcome back, {session.name}! </h2> </Row>
+        <Row> <h1> Welcome back, {session.name}! </h1> </Row>
         <hr></hr>
         <Row><h4 style={{ color: "#fc5d35" }}>My Saved Recipes</h4> </Row>
 

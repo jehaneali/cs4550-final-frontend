@@ -42,7 +42,7 @@ function Video() {
     return (
         <Row>
             <Col>
-                <h2>Video Chat </h2>
+                <h1>Video Chat </h1>
                 <Form action={URL}>
                     <Form.Group>    
                         <Form.Label>Enter a video call ID, and you'll be taken to your call.</Form.Label>

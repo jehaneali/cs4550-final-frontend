@@ -36,7 +36,7 @@ function Rep({ recipe }) {
                 <p>{recipe.rep["strMeasure19"]} {recipe.rep["strIngredient19"]}</p>
                 <p>{recipe.rep["strMeasure20"]} {recipe.rep["strIngredient20"]}</p>
                 <br/>
-                <h4>Method</h4>
+                <h4>Instructions</h4>
                 {recipe.rep["strInstructions"]}
             </div>
         )

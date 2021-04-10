@@ -33,7 +33,7 @@ function RecipeSearch() {
   return (
     <Row>
       <Col>
-        <h2>Recipe Search</h2>
+        <h1>Recipe Search</h1>
         <Form onSubmit={submit}>
           <Form.Group>
             <Form.Label>Enter the name of the recipe you're looking for!</Form.Label>
