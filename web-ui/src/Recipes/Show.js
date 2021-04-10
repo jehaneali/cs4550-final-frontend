@@ -9,7 +9,7 @@ let id = 1;
 // }
 
 function Rep({ recipe }) {
-    if (recipe.id == id) {
+    if (recipe.id == 1) {
         return (
             <div>
                 <h2>{recipe.rep["strMeal"]} <div class="text-center"> <Button variant="primary"> Save this recipe!</Button></div> </h2>
