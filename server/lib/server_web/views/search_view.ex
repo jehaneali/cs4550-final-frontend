@@ -19,14 +19,20 @@ defmodule ServerWeb.SearchView do
 
   def render("search.json", %{search: search}) do
     # l = lookup({search.type})
+    param2 = String.replace(search.params, " ", "_")
     api_key = Application.fetch_env!(:server, :api_key)
     resp =
       HTTPoison.get!(
-        "https://www.themealdb.com/api/json/v2/#{api_key}/search.php?s=#{search.params}"
+        "https://www.themealdb.com/api/json/v2/#{api_key}/search.php?s=#{param2}"
       )
     data = Jason.decode!(resp.body)
-    %{identification: search.id,
+    if (data["meals"] != nil) do
+      %{identification: search.id,
       r: hd(data["meals"])}
+    else
+      %{identification: search.id,
+      r: ""}
+    end
   end
 
 end

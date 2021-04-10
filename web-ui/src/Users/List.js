@@ -9,10 +9,10 @@ function User({ user, session }) {
         <tr key={user.id}>
           <td>{user.name}</td>
           <td>
-            <Button variant="primary" type="submit">
+            {/* <Button variant="primary" type="submit"> */}
               {/* FIXME : how to change this depending on whether following or not? */}
-            Follow
-          </Button>
+            {/* Follow */}
+          {/* </Button> */}
           </td>
         </tr>
       );

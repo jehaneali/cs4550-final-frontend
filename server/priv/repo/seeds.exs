@@ -30,9 +30,17 @@ defmodule Inject do
   end
 end
 
-sam = Inject.user("Sam", "test1")
-samantha = Inject.user("Samantha", "test2")
-soup = Inject.rep(53047,sam.id)
-stew = Inject.rep(53045,sam.id)
-sardines = Inject.rep(53041,samantha.id)
-search_soup = Inject.search("meal_name", "soup")
+abby = Inject.user("Abby", "12345678")
+tanya = Inject.user("Tanya", "87654321")
+kia = Inject.user("Kia", "rodeotime")
+gigi = Inject.user("Gigi", "itsgravy")
+_p1 = Inject.rep(52779,gigi.id)
+_p1 = Inject.rep(52833,gigi.id)
+_p1 = Inject.rep(52900,gigi.id)
+_p1 = Inject.rep(52833,gigi.id)
+_p1 = Inject.rep(53015,gigi.id)
+_p4 = Inject.rep(52862,gigi.id)
+_s1 = Inject.search("meal_name", "Honey Balsamic Chicken with Crispy Broccoli & Potatoes")
+_s2 = Inject.search("meal_name", "French Onion Chicken with Roasted Carrots & Mashed Potatoes")
+_s3 = Inject.search("meal_name", "Skillet Apple Pork Chops with Roasted Sweet Potatoes & Zucchini")
+_s5 = Inject.search("meal_name", "Soy-Glazed Meatloaves with Wasabi Mashed Potatoes & Roasted Carrots")

@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import RecipeShow from './Show'
 
 function Rep({ search }) {
-  return (
+  if (search.r != "") {
+    return (
       <div class="card-group">
         <div class="card" style={{ width: '18rem' }}>
           <img class="card-img-top" src={search.r["strMealThumb"]}></img>
@@ -21,6 +22,10 @@ function Rep({ search }) {
         </div>
       </div>
     );
+  }
+  else {
+    return null;
+  }
 }
 
 function RecipesList({ searches }) {
