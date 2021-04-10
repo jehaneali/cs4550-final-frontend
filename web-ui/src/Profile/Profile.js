@@ -21,8 +21,8 @@ function Rep({ recipe, session }) {
             {/* <Button variant="secondary" onClick={RecipeShow}> View Recipe</Button> */}
             <Link to="/recipes/show">
               View Recipe
-            </Link>
-            <Button variant="primary">Save Recipe</Button> </div>
+            </Link>&nbsp;
+            <Button variant="primary">Remove Recipe</Button> </div>
           {/* <div class="text-center"><Button variant="primary">Save this recipe!</Button></div> */}
           <br></br>
         </div>
