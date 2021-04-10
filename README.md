@@ -1,4 +1,8 @@
-# cs4550-final-project
+# cs4550-final-project - Kitchen Island
+
+Deployed to:
+- http://kitchenisland.jehaneali.site/
+- https://webchat.kia.town/
 
 Attributions:
 - https://github.com/NatTuck/scratch-2021-01
