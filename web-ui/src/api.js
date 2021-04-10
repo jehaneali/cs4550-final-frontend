@@ -60,15 +60,15 @@ export function fetch_saves() {
   });
 }
 
-export function fetch_current_search() {
-  api_get("/searches/1").then((data) => {
-    let action = {
-      type: 'search/set',
-      data: data,
-    }
-    store.dispatch(action);
-  });
-}
+// export function fetch_current_search() {
+//   api_get("/searches/2").then((data) => {
+//     let action = {
+//       type: 'search/set',
+//       data: data,
+//     }
+//     store.dispatch(action);
+//   });
+// }
 
 export function api_login(name, password) {
   api_post("/session", { name, password }).then((data) => {

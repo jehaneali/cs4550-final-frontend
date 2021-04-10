@@ -25,8 +25,8 @@ defmodule ServerWeb.SearchView do
         "https://www.themealdb.com/api/json/v2/#{api_key}/search.php?s=#{search.params}"
       )
     data = Jason.decode!(resp.body)
-    %{id: search.id,
-      results: data}
+    %{identification: search.id,
+      r: hd(data["meals"])}
   end
 
 end

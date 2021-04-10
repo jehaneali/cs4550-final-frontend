@@ -43,9 +43,9 @@ function recipes(state = [], action) {
   }
 }
 
-function current_search(state = [], action) {
+function searches(state = [], action) {
   switch (action.type) {
-    case 'search/set':
+    case 'searches/set':
       return action.data;
     default:
       return state;
@@ -106,7 +106,7 @@ function root_reducer(state, action) {
     }
   */
   let redu = combineReducers(
-    { users, user_form, recipes, current_search, posts, session, error}
+    { users, user_form, recipes, searches, posts, session, error}
   );
 
   let state1 = redu(state, action);

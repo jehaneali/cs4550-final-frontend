@@ -3,26 +3,31 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import RecipeShow from './Show'
 
-function RecipesList({ current_search }) {
+function Rep({ search }) {
+  return (
+      <div class="card-group">
+        <div class="card" style={{ width: '18rem' }}>
+          <img class="card-img-top" src={search.r["strMealThumb"]}></img>
+          {/* <h3 class="card-title">{recipe.id}</h3> */}
+          <h4 class="text-center">{search.r["strMeal"]}</h4>
+          {/* <h6 class="card-title">{recipe.api_id}</h6> */}
+          <div class="card-text" style={{ textAlign: 'center' }}>
+            <div>Category: {search.r["strCategory"]} </div>
+            <div>Cuisine: {search.r["strArea"]} </div> </div>
+          <br></br>
+          <div class="text-center"><Button variant="secondary" onClick={RecipeShow}> View Recipe</Button> <Button variant="primary">Save Recipe</Button> </div>
+          {/* <div class="text-center"><Button variant="primary">Save this recipe!</Button></div> */}
+          <br></br>
+        </div>
+      </div>
+    );
+}
 
-  // let cards = current_search.results.map((recipe) => (
-  //   <h5>{recipe["data"].id}</h5>
-    // <div class="card-group">
-    //   <div class="card" style={{ width: '18rem' }}>
-    //     <img class="card-img-top" src={recipe.rep["strMealThumb"]}></img>
-    //     {/* <h3 class="card-title">{recipe.id}</h3> */}
-    //     <h4 class="text-center">{recipe.rep["strMeal"]}</h4>
-    //     {/* <h6 class="card-title">{recipe.api_id}</h6> */}
-    //     <div class="card-text" style={{ textAlign: 'center' }}>
-    //       <div>Category: {recipe.rep["strCategory"]} </div> 
-    //       <div>Cuisine: {recipe.rep["strArea"]} </div> </div>
-    //     <br></br>
-    //     <div class="text-center"><Button variant="secondary" onClick={RecipeShow}> View Recipe</Button> <Button variant="primary">Save Recipe</Button> </div>
-    //     {/* <div class="text-center"><Button variant="primary">Save this recipe!</Button></div> */}
-    //     <br></br>
-    //   </div>
-    // </div>
-  // ));
+function RecipesList({ searches }) {
+  let cards = searches.map((search) => (
+    <Rep search={search} />
+  ));
+
 
 
 
@@ -39,7 +44,7 @@ function RecipesList({ current_search }) {
       {/* <table className="table table-striped">
             
             <tbody> */}
-      <div class="card-deck">{current_search.results}</div>
+      <div class="card-deck">{cards}</div>
      
       {/* </tbody>
           </table> */}
@@ -50,8 +55,8 @@ function RecipesList({ current_search }) {
 
 }
 
-function state2props({ current_search }) {
-  return { current_search };
+function state2props({ searches }) {
+  return { searches };
 }
 
 export default connect(state2props)(RecipesList);

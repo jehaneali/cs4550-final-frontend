@@ -1,10 +1,11 @@
 import { Row, Col, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import RecipeShow from '../Recipes/Show'
+// import { set_id } from '../Recipes/Show';
 
 function Rep({ recipe, session }) {
   if (session.user_id == recipe.user_id) {
+    // set_id(recipe.id);
     return (
       <div class="card-group">
         <div class="card" style={{ width: '18rem' }}>
@@ -16,7 +17,12 @@ function Rep({ recipe, session }) {
             <div>Category: {recipe.rep["strCategory"]} </div>
             <div>Cuisine: {recipe.rep["strArea"]} </div> </div>
           <br></br>
-          <div class="text-center"><Button variant="secondary" onClick={RecipeShow}> View Recipe</Button> <Button variant="primary">Save Recipe</Button> </div>
+          <div class="text-center">
+            {/* <Button variant="secondary" onClick={RecipeShow}> View Recipe</Button> */}
+            <Link to="/recipes/show">
+              View Recipe
+            </Link>
+            <Button variant="primary">Save Recipe</Button> </div>
           {/* <div class="text-center"><Button variant="primary">Save this recipe!</Button></div> */}
           <br></br>
         </div>

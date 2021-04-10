@@ -3,12 +3,15 @@ import { Nav, Row, Col, Form,
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { api_login } from './api';
 
 function LoginForm() {
 const [name, setName] = useState("");
 const [pass, setPass] = useState("");
+
+let history = useHistory();
 
 function on_submit(ev) {
 ev.preventDefault();
@@ -20,14 +23,19 @@ return (
  <Form.Control name="name"
                type="text"
                onChange={(ev) => setName(ev.target.value)}
-               value={name} />
+               value={name}
+               placeholder="Name" />
  <Form.Control name="password"
                type="password"
                onChange={(ev) => setPass(ev.target.value)}
-               value={pass} />
+               value={pass}
+               placeholder="Password" />
  <Button variant="secondary" type="submit">
    Login
  </Button>
+ <a class="btn btn-warning" role="button" href="/users/new">
+   New User
+ </a>
 </Form>
 );
 }

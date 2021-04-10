@@ -7,6 +7,9 @@ import pick from 'lodash/pick';
 import { create_search, fetch_searches } from './api';
 
 function Video() {
+    const [roomID, setRoomID] = useState("");
+    const [URL, setURL] = useState("https://webchat.kia.town/");
+
     let history = useHistory();
     const [search, setSearch] = useState({
         type: "meal_name", params: "",
@@ -30,25 +33,26 @@ function Video() {
         setSearch(u1);
     }
 
-    // function URL(key) {
-    //     location.href = 'https://webchat.kia.town/'+key;
-    // }
+    function updateURL(input) {
+        setRoomID(input.target.value);
+        let fullURL = "https://webchat.kia.town/".concat(roomID);
+        setURL(fullURL);
+    }
 
     return (
         <Row>
             <Col>
                 <h2>Video Chat </h2>
-                <Form onSubmit={submit}>
-                    <Form.Group>
+                <Form action={URL}>
+                    <Form.Group>    
                         <Form.Label>Enter a video call ID, and you'll be taken to your call.</Form.Label>
                         <Form.Control type="text"
-                            onChange={
-                                (ev) => update("name", ev)}
-                            value={search.params} />
+                            onChange={updateURL}
+                            value={roomID} />
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Join Call
-          </Button>
+                    </Button>
                 </Form>
             </Col>
         </Row>
