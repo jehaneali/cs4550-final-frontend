@@ -45,7 +45,7 @@ function UsersList({ users, session }) {
     <div>
       <Row>
         <Col>
-          <h2>List Users</h2>
+          <h1>List Users</h1>
           <p>
             <Link to="/users/new">
               New User
