@@ -12,7 +12,7 @@ function Rep({ recipe }) {
     if (recipe.id == 1) {
         return (
             <div>
-                <h2>{recipe.rep["strMeal"]} <div class="text-center"> <Button variant="primary"> Save this recipe!</Button></div> </h2>
+                <h2>{recipe.rep["strMeal"]} <div class="text-center"> <Button variant="primary"> Remove this recipe!</Button></div> </h2>
                 <hr></hr>
                 <h4>Ingredients</h4>
                 <p>{recipe.rep["strMeasure1"]} {recipe.rep["strIngredient1"]}</p>
