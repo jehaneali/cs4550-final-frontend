@@ -10,6 +10,7 @@ Attributions:
 - https://github.com/WebDevSimplified/Zoom-Clone-With-WebRTC
 - https://github.com/WebDevSimplified/Zoom-Clone-With-WebRTC/issues/56
 - https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
+- https://www.themealdb.com
 
 Our API:
 - https://www.themealdb.com/api.php
