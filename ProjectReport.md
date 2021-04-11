@@ -4,7 +4,7 @@ Our team was composed of Jehane Ali, Abby Carr, Tanya Kler, and Kia
 Zafar. The URL’s we deployed to were
 http://kitchenisland.clipturtle.com/ and https://webchat.kia.town/.
 The server for the site is hosted on
-http://kitchenisland.jehaneali.com/. The URL of the github repository
+http://kitchenisland.jehaneali.site/. The URL of the github repository
 with all of our deployed code is
 https://github.com/jehaneali/cs4550-final-project. Our app is properly
 deployed and working as well. Each team member had their own tasks to
